@@ -51,9 +51,6 @@ In future versions of the Municipal Services Application:
 - **Local Events and Announcements** will provide citizens with information about upcoming events.
 - **Service Request Status** will allow users to track their issue reports.
 
-## Known Issues
-- None reported for this version.
-
 ## License
 This project is licensed under the MIT License.
 
