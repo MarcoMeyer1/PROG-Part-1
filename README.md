@@ -46,13 +46,6 @@ This project is a **C# .NET Framework** desktop application designed to streamli
 ### Other Features
 - **Back to Main Menu**: Use the "Back to Main Menu" button to return to the main screen.
 
-## Screenshots
-### Main Window
-![Main Window](screenshots/main-window.png)
-
-### Report Issues Window
-![Report Issues](screenshots/report-issues.png)
-
 ## Future Development
 In future versions of the Municipal Services Application:
 - **Local Events and Announcements** will provide citizens with information about upcoming events.
