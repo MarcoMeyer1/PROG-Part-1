@@ -67,7 +67,7 @@ namespace Part_1
             MessageBox.Show("Issue reported successfully.");
 
             // Wait for 3 seconds before navigating back to the main window
-            await Task.Delay(3000);
+            await Task.Delay(1000);
 
             // Navigate back to the main window
             MainWindow mainWindow = new MainWindow();
