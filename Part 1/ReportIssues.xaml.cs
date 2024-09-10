@@ -45,10 +45,21 @@ namespace Part_1
         private async void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
             string location = txtLocation.Text;
-            string category = (cmbCategory.SelectedItem as ComboBoxItem).Content.ToString();
-            TextRange description = new TextRange(rtbDescription.Document.ContentStart, rtbDescription.Document.ContentEnd);
 
-            if (string.IsNullOrEmpty(location) || string.IsNullOrEmpty(category) || string.IsNullOrEmpty(description.Text.Trim()))
+            // Null check for the selected category
+            string category = cmbCategory.SelectedItem != null
+                ? (cmbCategory.SelectedItem as ComboBoxItem)?.Content?.ToString()
+                : null;
+
+            // Null check for the description (TextRange)
+            TextRange description = rtbDescription?.Document != null
+                ? new TextRange(rtbDescription.Document.ContentStart, rtbDescription.Document.ContentEnd)
+                : null;
+
+            // Validate inputs and handle empty fields
+            if (string.IsNullOrEmpty(location) ||
+                string.IsNullOrEmpty(category) ||
+                description == null || string.IsNullOrEmpty(description.Text.Trim()))
             {
                 MessageBox.Show("Please fill all fields.");
                 return;
@@ -66,7 +77,7 @@ namespace Part_1
 
             MessageBox.Show("Issue reported successfully.");
 
-            // Wait for 3 seconds before navigating back to the main window
+            // Wait for 1 second before navigating back to the main window
             await Task.Delay(1000);
 
             // Navigate back to the main window
@@ -82,7 +93,5 @@ namespace Part_1
             mainWindow.Show();
             this.Close();  // Close the current ReportIssues window
         }
-
-
     }
 }

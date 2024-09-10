@@ -4,37 +4,47 @@
         Title="Report Issues" Height="600" Width="600"
         Background="#F5F5F5">
 
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="550">
+    <Canvas Background="#F5F5F5">
 
-        <!-- Heading -->
-        <TextBlock Text="Report an Issue" FontSize="24" FontWeight="Bold" Foreground="#3F51B5" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+        <TextBlock Text="Report an Issue" FontSize="24" FontWeight="Bold" Foreground="#3F51B5"
+                   Canvas.Left="200" Canvas.Top="20"/>
 
-        <!-- Location Input -->
-        <TextBox Name="txtLocation" Width="300" Margin="10" FontSize="14" Padding="5" Text="Enter Location" Background="#FFFFFF" Foreground="Black" BorderBrush="Black" BorderThickness="2"/>
+        <TextBlock Text="Location:" FontSize="14" FontWeight="Bold" Foreground="Black"
+                   Canvas.Left="50" Canvas.Top="80"/>
+        <TextBox Name="txtLocation" Width="300" FontSize="14" Padding="5" Background="#FFFFFF"
+                 Foreground="Black" BorderBrush="Black" BorderThickness="2"
+                 Canvas.Left="150" Canvas.Top="80"/>
 
-        <!-- Category Selection -->
-        <ComboBox Name="cmbCategory" Width="300" Margin="10" FontSize="14" Background="#FFFFFF" Foreground="Black" BorderBrush="Black" BorderThickness="2">
+        <TextBlock Text="Category:" FontSize="14" FontWeight="Bold" Foreground="Black"
+                   Canvas.Left="50" Canvas.Top="143" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <ComboBox Name="cmbCategory" Width="300" FontSize="14" Background="#FFFFFF"
+                  Foreground="Black" BorderBrush="Black" BorderThickness="2"
+                  Canvas.Left="150" Canvas.Top="140">
             <ComboBoxItem>Sanitation</ComboBoxItem>
             <ComboBoxItem>Roads</ComboBoxItem>
             <ComboBoxItem>Utilities</ComboBoxItem>
         </ComboBox>
 
-        <!-- Description Box -->
-        <RichTextBox Name="rtbDescription" Height="100" Margin="10" Background="#FFFFFF" Foreground="Black" BorderBrush="Black" BorderThickness="2"/>
+        <TextBlock Text="Description:" FontSize="14" FontWeight="Bold" Foreground="Black"
+                   Canvas.Left="50" Canvas.Top="200"/>
+        <RichTextBox Name="rtbDescription" Height="100" Width="300" Background="#FFFFFF"
+                     Foreground="Black" BorderBrush="Black" BorderThickness="2"
+                     Canvas.Left="150" Canvas.Top="200"/>
 
-        <!-- Attach File Button -->
-        <Button Name="btnAttach" Content="Attach File" Width="150" Height="40" Margin="10" FontSize="14" Background="#B2EBF2" Foreground="Black" BorderThickness="0" Click="btnAttach_Click"/>
+        <Button Name="btnAttach" Content="Attach File" Width="150" Height="40" FontSize="14"
+                Background="#B2EBF2" Foreground="Black" BorderThickness="0"
+                Canvas.Left="225" Canvas.Top="330" Click="btnAttach_Click" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
-        <!-- Submit Issue Button -->
-        <Button Name="btnSubmit" Content="Submit Issue" Width="150" Height="40" Margin="10" FontSize="14" Background="#A8E6A1" Foreground="Black" BorderThickness="0" Click="btnSubmit_Click"/>
+        <Button Name="btnSubmit" Content="Submit Issue" Width="150" Height="40" FontSize="14"
+                Background="#A8E6A1" Foreground="Black" BorderThickness="0"
+                Canvas.Left="225" Canvas.Top="390" Click="btnSubmit_Click" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
+        <Button Name="btnBackToMain" Content="Back to Main Menu" Width="150" Height="40" FontSize="14"
+                Background="#FFCCBC" Foreground="Black" BorderThickness="0"
+                Canvas.Left="225" Canvas.Top="450" Click="btnBackToMain_Click" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
+        <ProgressBar Name="progressSubmission" Width="300" Height="20" Background="#FFCCBC"
+                     Canvas.Left="150" Canvas.Top="500" Visibility="Collapsed"/>
 
-        <!-- Back to Main Menu Button -->
-        <Button Name="btnBackToMain" Content="Back to Main Menu" Width="150" Height="40" Margin="10" FontSize="14" Background="#FFCCBC" Foreground="Black" BorderThickness="0" Click="btnBackToMain_Click"/>
-
-        <!-- Progress Bar -->
-        <ProgressBar Name="progressSubmission" Width="300" Height="20" Margin="10" Visibility="Collapsed" Background="#FFCCBC"/>
-
-    </StackPanel>
+    </Canvas>
 </Window>
