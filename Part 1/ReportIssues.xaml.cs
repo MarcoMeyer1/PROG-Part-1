@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -65,7 +64,7 @@ namespace Part_1
                 return;
             }
 
-            // Show progress bar and simulate submission
+            // Show progress bar and simulate loading before saving
             progressSubmission.Visibility = Visibility.Visible;
             progressSubmission.Value = 0;
 
@@ -75,7 +74,18 @@ namespace Part_1
                 await Task.Delay(10);  // Simulate progress
             }
 
-            MessageBox.Show("Issue reported successfully.");
+            // Save the issue to the list in the repository after the progress bar completes
+            Issue newIssue = new Issue()
+            {
+                Location = location,
+                Category = category,
+                Description = description.Text.Trim()
+            };
+
+            IssueRepository.Issues.Add(newIssue);
+
+            // Now that the issue is saved, display the success message
+            MessageBox.Show("Issue reported and saved successfully.");
 
             // Wait for 1 second before navigating back to the main window
             await Task.Delay(1000);
@@ -85,6 +95,7 @@ namespace Part_1
             mainWindow.Show();
             this.Close(); // Close the current ReportIssues window
         }
+
 
         private void btnBackToMain_Click(object sender, RoutedEventArgs e)
         {
