@@ -55,10 +55,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Event.cs" />
     <Compile Include="Issue.cs" />
+    <Compile Include="LocalEvents.xaml.cs">
+      <DependentUpon>LocalEvents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RecommendationEngine.cs" />
     <Compile Include="ReportIssues.xaml.cs">
       <DependentUpon>ReportIssues.xaml</DependentUpon>
     </Compile>
+    <Page Include="LocalEvents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

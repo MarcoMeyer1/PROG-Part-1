@@ -31,6 +31,11 @@ namespace Part_1
             reportIssues.Show();
             this.Close();
         }
-
+        private void btnLocalEvents_Click(object sender, RoutedEventArgs e)
+        {
+            LocalEvents localEvents = new LocalEvents();
+            localEvents.Show();
+            this.Close();
+        }
     }
 }
