@@ -111,5 +111,27 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\art_background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\community_background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\education_background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\health_background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\music_background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sports_background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tech_background.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

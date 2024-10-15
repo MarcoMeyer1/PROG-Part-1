@@ -53,16 +53,18 @@ namespace Part_1
                 {
                     lstEvents.Items.Add($"{result.Date.ToShortDateString()}: {result.Name} - {result.Category}");
 
-                    // Track the category searched by user
-                    if (!string.IsNullOrEmpty(result.Category))
+                    // Track the category or name searched by user
+                    string searchTerm = !string.IsNullOrEmpty(result.Category) ? result.Category : result.Name;
+
+                    if (!string.IsNullOrEmpty(searchTerm))
                     {
-                        if (userSearchPatterns.ContainsKey(result.Category))
+                        if (userSearchPatterns.ContainsKey(searchTerm))
                         {
-                            userSearchPatterns[result.Category]++;  // Increment count for existing category
+                            userSearchPatterns[searchTerm]++;  // Increment count for existing search term
                         }
                         else
                         {
-                            userSearchPatterns[result.Category] = 1;  // Add new category to dictionary
+                            userSearchPatterns[searchTerm] = 1;  // Add new search term to dictionary
                         }
                     }
                 }
@@ -75,6 +77,7 @@ namespace Part_1
             }
         }
 
+
         // Recommendation button to suggest based on search patterns
         private void btnRecommend_Click(object sender, RoutedEventArgs e)
         {
@@ -84,7 +87,7 @@ namespace Part_1
                 return;
             }
 
-            var recommendations = recommendationEngine.GetRecommendations();  // Get up to 3 weighted recommendations
+            var recommendations = recommendationEngine.GetRecommendations();  
 
             if (recommendations.Count > 0)
             {
