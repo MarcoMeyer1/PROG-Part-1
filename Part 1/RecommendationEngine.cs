@@ -32,7 +32,7 @@ namespace Part_1
             // Iterate over the user's search patterns and calculate weight-based recommendations
             foreach (var search in userSearchPatterns.OrderByDescending(c => c.Value))
             {
-                string searchTerm = search.Key; // Could be either category or name
+                string searchTerm = search.Key; 
                 int searchCount = search.Value;
 
                 // Determine the number of recommendations to give for this search term (weight-based)
@@ -41,7 +41,7 @@ namespace Part_1
                 // Fetch events matching the search term (either category or name)
                 var eventsForTerm = eventRepository.GetAllEvents()
                     .Where(e => e.Category.Equals(searchTerm, StringComparison.OrdinalIgnoreCase)
-                             || e.Name.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)  // Case-insensitive name match
+                             || e.Name.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)  
                     .Take(numberOfRecommendationsForTerm);
 
 

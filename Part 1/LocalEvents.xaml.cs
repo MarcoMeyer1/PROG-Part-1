@@ -87,7 +87,7 @@ namespace Part_1
                 return;
             }
 
-            var recommendations = recommendationEngine.GetRecommendations();  // Get up to 3 weighted recommendations
+            var recommendations = recommendationEngine.GetRecommendations();  
 
             if (recommendations.Count > 0)
             {

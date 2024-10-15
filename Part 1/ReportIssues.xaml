@@ -5,7 +5,6 @@
 
     <Canvas Background="#282828">
 
-        <!-- Title -->
         <TextBlock Text="Report an Issue" FontSize="24" FontWeight="Bold" Foreground="#F0F0F0"
                    Canvas.Left="200" Canvas.Top="20">
             <TextBlock.Effect>
@@ -13,14 +12,12 @@
             </TextBlock.Effect>
         </TextBlock>
 
-        <!-- Location -->
         <TextBlock Text="Location:" FontSize="14" FontWeight="Bold" Foreground="#F0F0F0"
                    Canvas.Left="50" Canvas.Top="80"/>
         <TextBox Name="txtLocation" Width="300" FontSize="14" Padding="5" Background="#2E2E2E"
                  Foreground="#E0E0E0" BorderBrush="#3C3C3C" BorderThickness="2"
                  Canvas.Left="150" Canvas.Top="80"/>
 
-        <!-- Category -->
         <TextBlock Text="Category:" FontSize="14" FontWeight="Bold" Foreground="#F0F0F0"
                    Canvas.Left="50" Canvas.Top="143"/>
         <ComboBox Name="cmbCategory" Width="300" FontSize="14" Background="#2E2E2E"
@@ -31,29 +28,24 @@
             <ComboBoxItem>Utilities</ComboBoxItem>
         </ComboBox>
 
-        <!-- Description -->
         <TextBlock Text="Description:" FontSize="14" FontWeight="Bold" Foreground="#F0F0F0"
                    Canvas.Left="50" Canvas.Top="200"/>
         <RichTextBox Name="rtbDescription" Height="100" Width="300" Background="#2E2E2E"
                      Foreground="#E0E0E0" BorderBrush="#3C3C3C" BorderThickness="2"
                      Canvas.Left="150" Canvas.Top="200"/>
 
-        <!-- Attach File Button -->
         <Button Name="btnAttach" Content="Attach File" Width="150" Height="40" FontSize="14"
                 Background="#FF395B5B" Foreground="#F0F0F0" BorderBrush="#FF36F9F9" BorderThickness="2"
                 Canvas.Left="225" Canvas.Top="330" Click="btnAttach_Click"/>
 
-        <!-- Submit Issue Button -->
         <Button Name="btnSubmit" Content="Submit Issue" Width="150" Height="40" FontSize="14"
                 Background="#FF435F51" Foreground="#F0F0F0" BorderBrush="#FF44F9B1" BorderThickness="2"
                 Canvas.Left="225" Canvas.Top="390" Click="btnSubmit_Click"/>
 
-        <!-- Back to Main Menu Button -->
         <Button Name="btnBackToMain" Content="Back to Main Menu" Width="150" Height="40" FontSize="14"
                 Background="#FF5B433C" Foreground="#F0F0F0" BorderBrush="#FFFF6D37" BorderThickness="2"
                 Canvas.Left="225" Canvas.Top="450" Click="btnBackToMain_Click"/>
 
-        <!-- Progress Bar -->
         <ProgressBar Name="progressSubmission" Width="300" Height="20" Background="#2E2E2E"
                      Foreground="#E0E0E0" Canvas.Left="150" Canvas.Top="500" Visibility="Collapsed"/>
 

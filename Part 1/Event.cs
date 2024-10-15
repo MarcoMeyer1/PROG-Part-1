@@ -33,7 +33,7 @@ namespace Part_1
                     case "education":
                         return "Images/education_background.jpg";
                     default:
-                        return "Images/default_background.jpg";  // Default background if no match
+                        return "Images/default_background.jpg";  
                 }
             }
         }
@@ -46,21 +46,21 @@ namespace Part_1
                 switch (Category.ToLower())
                 {
                     case "music":
-                        return (Brush)new BrushConverter().ConvertFrom("#4A90E2"); // Neon Blue
+                        return (Brush)new BrushConverter().ConvertFrom("#4A90E2"); // Blue
                     case "art":
-                        return (Brush)new BrushConverter().ConvertFrom("#F95F9E"); // Neon Pink
+                        return (Brush)new BrushConverter().ConvertFrom("#F95F9E"); // Pink
                     case "health":
-                        return (Brush)new BrushConverter().ConvertFrom("#00FF85"); // Bright Green
+                        return (Brush)new BrushConverter().ConvertFrom("#00FF85"); // Green
                     case "community":
-                        return (Brush)new BrushConverter().ConvertFrom("#50E3C2"); // Turquoise
+                        return (Brush)new BrushConverter().ConvertFrom("#50E3C2"); // Cyan
                     case "technology":
-                        return (Brush)new BrushConverter().ConvertFrom("#9B51E0"); // Bright Purple
+                        return (Brush)new BrushConverter().ConvertFrom("#9B51E0"); // Purple
                     case "sports":
-                        return (Brush)new BrushConverter().ConvertFrom("#FFCC00"); // Neon Yellow
+                        return (Brush)new BrushConverter().ConvertFrom("#FFCC00"); // Yellow
                     case "education":
-                        return (Brush)new BrushConverter().ConvertFrom("#FF6F61"); // Coral Orange
+                        return (Brush)new BrushConverter().ConvertFrom("#FF6F61"); // Orange
                     default:
-                        return (Brush)new BrushConverter().ConvertFrom("#FFFFFF"); // Default White
+                        return (Brush)new BrushConverter().ConvertFrom("#FFFFFF"); // White 
                 }
             }
         }
@@ -71,15 +71,28 @@ namespace Part_1
     {
         private Stack<Event> eventStack;
         private Queue<Event> eventQueue;
-        private Dictionary<string, Event> eventDictionary;
+
+        // Priority queue using SortedSet
+        private SortedSet<Event> eventPriorityQueue;
+
+        private SortedDictionary<string, Event> eventDictionary;
         private HashSet<string> eventCategories;
 
         public EventRepository()
         {
             eventStack = new Stack<Event>();
             eventQueue = new Queue<Event>();
-            eventDictionary = new Dictionary<string, Event>();
+            eventDictionary = new SortedDictionary<string, Event>();
             eventCategories = new HashSet<string>();
+
+            
+            eventPriorityQueue = new SortedSet<Event>(Comparer<Event>.Create((x, y) =>
+            {
+                int result = x.Date.CompareTo(y.Date); // Sort by date
+                if (result == 0)
+                    return x.Name.CompareTo(y.Name);  // If dates are the same, sort by name
+                return result;
+            }));
 
             SeedEvents();
         }
@@ -116,6 +129,7 @@ namespace Part_1
                 eventQueue.Enqueue(evnt);
                 eventDictionary.Add(evnt.Name, evnt);
                 eventCategories.Add(evnt.Category);
+                eventPriorityQueue.Add(evnt);
             }
         }
 
@@ -124,7 +138,7 @@ namespace Part_1
             return new List<Event>(eventQueue); // Return all events in queue order
         }
 
-        // Updated SearchEvents method to handle both text and date search
+      
         public List<Event> SearchEvents(string query)
         {
             List<Event> results = new List<Event>();
