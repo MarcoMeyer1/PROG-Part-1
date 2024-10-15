@@ -17,7 +17,7 @@ namespace Part_1
         }
 
         // Get weighted recommendations based on the user's search history
-        public List<Event> GetRecommendations(int maxRecommendations = 3)
+        public List<Event> GetRecommendations(int maxRecommendations = 5)  // Updated to 5
         {
             // Check if user has searched enough times to provide recommendations
             if (userSearchPatterns.Count == 0)
