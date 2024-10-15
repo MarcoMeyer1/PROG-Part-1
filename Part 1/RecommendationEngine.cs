@@ -17,7 +17,7 @@ namespace Part_1
         }
 
         // Get weighted recommendations based on the user's search history
-        public List<Event> GetRecommendations(int maxRecommendations = 5)  
+        public List<Event> GetRecommendations(int maxRecommendations = 5)
         {
             // Check if user has searched enough times to provide recommendations
             if (userSearchPatterns.Count == 0)
@@ -32,19 +32,21 @@ namespace Part_1
             // Iterate over the user's search patterns and calculate weight-based recommendations
             foreach (var search in userSearchPatterns.OrderByDescending(c => c.Value))
             {
-                string category = search.Key;
+                string searchTerm = search.Key; // Could be either category or name
                 int searchCount = search.Value;
 
-                // Determine the number of recommendations to give for this category (weight-based)
-                int numberOfRecommendationsForCategory = (int)Math.Ceiling((double)searchCount / totalSearches * maxRecommendations);
+                // Determine the number of recommendations to give for this search term (weight-based)
+                int numberOfRecommendationsForTerm = (int)Math.Ceiling((double)searchCount / totalSearches * maxRecommendations);
 
-                // Fetch events from this category
-                var eventsForCategory = eventRepository.GetAllEvents()
-                    .Where(e => e.Category.Equals(category, StringComparison.OrdinalIgnoreCase))
-                    .Take(numberOfRecommendationsForCategory);
+                // Fetch events matching the search term (either category or name)
+                var eventsForTerm = eventRepository.GetAllEvents()
+                    .Where(e => e.Category.Equals(searchTerm, StringComparison.OrdinalIgnoreCase)
+                             || e.Name.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)  // Case-insensitive name match
+                    .Take(numberOfRecommendationsForTerm);
+
 
                 // Add the events to the recommendations list
-                recommendations.AddRange(eventsForCategory);
+                recommendations.AddRange(eventsForTerm);
 
                 // Stop if we've reached the maximum number of recommendations
                 if (recommendations.Count >= maxRecommendations)
