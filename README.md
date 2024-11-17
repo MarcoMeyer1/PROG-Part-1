@@ -68,14 +68,39 @@ This project is a **C# .NET Framework** desktop application designed to streamli
 
 ---
 
-## Future Development
-1. **Enhanced Service Request Tracking**:
-   - Real-time updates on request statuses.
-   - Improved graph algorithms for dependency analysis.
-2. **Mobile Integration**:
-   - Develop a mobile version for broader accessibility.
-3. **Additional Recommendations**:
-   - Expand the recommendation engine to include nearby services and events.
+### Data Structures Used and Their Roles
+1. **Binary Search Tree (BST)**:
+   - **Purpose**: Organizes and retrieves service requests efficiently.
+   - **Implementation**: 
+     - The BST stores service requests by their unique ID, allowing quick insertion, deletion, and traversal operations.
+   - **Contribution to Efficiency**:
+     - **In-Order Traversal**: Displays service requests in a sorted manner.
+     - **Search Operation**: Quickly retrieves specific service requests for displaying or relationship mapping.
+   - **Example**:
+     - Service requests are inserted into the BST using their unique ID. For instance, request `ID = 3` ("Power Outage") can be efficiently located and displayed.
+
+2. **Graph**:
+   - **Purpose**: Manages relationships between service requests.
+   - **Implementation**: 
+     - Represents service requests as nodes and their dependencies as directed edges.
+   - **Contribution to Efficiency**:
+     - Allows identification of related service requests, enabling users to understand dependencies or concurrent tasks.
+   - **Example**:
+     - If `Request 1` ("Water Leak") depends on `Request 3` ("Power Outage"), this relationship is captured in the graph, allowing the "Related Requests" feature to display dependencies.
+
+3. **Custom ListView**:
+   - **Purpose**: Displays structured data for user interaction.
+   - **Implementation**: 
+     - Enhanced with data binding to show details like **ID**, **Name**, **Category**, and **Status**.
+   - **Contribution to Efficiency**:
+     - Provides a user-friendly view of the organized data, facilitating quick navigation and interaction.
+
+---
+
+### Contribution of Data Structures to "Service Request Status"
+- The **Binary Search Tree** ensures that the list of service requests is always organized and accessible.
+- The **Graph** structure supports advanced features like dependency analysis, enhancing user insights into municipal operations.
+- The combination of these structures underpins the "Related Requests" feature, ensuring that complex relationships are displayed seamlessly.
 
 ---
 
