@@ -13,12 +13,13 @@
         <Button Name="btnReportIssues" Content="Report Issues" Width="300" Height="60" Margin="10" FontSize="18" FontWeight="Bold" Foreground="#F0F0F0" Background="#FF31453A" Opacity="0.8" Click="btnReportIssues_Click" BorderBrush="#69f0aa" BorderThickness="3">
         </Button>
 
-        <Button Name="btnLocalEvents" Content="Local Events and Announcements" Width="300" Height="60" Margin="10" FontSize="18" FontWeight="Bold" Foreground="#F0F0F0" Background="#FF4A4A35" Opacity="0.8" Click="btnLocalEvents_Click" BorderBrush="#FFF3F37B" BorderThickness="3">
-        </Button>
+        <Button Name="btnLocalEvents" Content="Local Events and Announcements" Width="300" Height="60" 
+        Margin="10" FontSize="18" FontWeight="Bold" Foreground="#F0F0F0" Background="#FF896B35" 
+        BorderBrush="#FFF3C57B" BorderThickness="3" Opacity="0.8" Click="btnLocalEvents_Click" />
 
         <Button Name="btnServiceRequestStatus" Content="Service Request Status" Width="300" Height="60" 
-        Margin="10" FontSize="18" FontWeight="Bold" Foreground="#F0F0F0" Background="#FF4A4A35" 
-        Click="btnServiceRequestStatus_Click"/>
+        Margin="10" FontSize="18" FontWeight="Bold" Foreground="#F0F0F0" Background="#FF81863F" 
+        BorderBrush="#FFF3F37B" BorderThickness="3" Click="btnServiceRequestStatus_Click" />
 
     </StackPanel>
 </Window>
