@@ -24,7 +24,7 @@ namespace Part_1
         }
 
 
-        // Close Button Click Handler
+     
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

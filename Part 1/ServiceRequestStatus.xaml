@@ -5,7 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Part_1"
         mc:Ignorable="d"
-        Title="Service Request Status" Height="450" Width="850" Background="#282828">
+        Title="Service Request Status" Height="470" Width="850" Background="#282828">
+
+
+    <Window.Resources>
+        <Style TargetType="Border">
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" ShadowDepth="3" BlurRadius="5"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Style for rounded buttons -->
+        <Style TargetType="Button" x:Key="RoundButton">
+            <Setter Property="Background" Value="#4C4C4C" />
+            <Setter Property="Foreground" Value="#F0F0F0" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="BorderBrush" Value="Gray" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                         BorderBrush="{TemplateBinding BorderBrush}" 
+                         BorderThickness="{TemplateBinding BorderThickness}" 
+                         CornerRadius="10" 
+                         Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -16,7 +53,7 @@
         <TextBlock Text="Service Request Status" FontSize="24" FontWeight="Bold" Foreground="#F0F0F0"
                    HorizontalAlignment="Center" Margin="10"/>
 
-        <!-- Main Content -->
+ 
         <StackPanel Grid.Row="1" Margin="10">
             <!-- List of Service Requests -->
             <ListView Name="lstServiceRequests" Background="#2E2E2E" Foreground="#E0E0E0" Height="300" Margin="0,0,0,10">
@@ -52,8 +89,8 @@
 
             <!-- Show Related Requests Button -->
             <Button Name="btnShowRelatedRequests" Content="Show Related Requests" Width="200"
-                    HorizontalAlignment="Left" Margin="10" Background="#4A90E2" Foreground="#F0F0F0"
-                    Click="btnShowRelatedRequests_Click"/>
+        HorizontalAlignment="Left" Margin="10" Style="{StaticResource RoundButton}"
+        Background="#FFD700" Foreground="#282828" Click="btnShowRelatedRequests_Click"/>
         </StackPanel>
     </Grid>
 </Window>

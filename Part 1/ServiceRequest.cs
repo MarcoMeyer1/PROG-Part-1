@@ -3,7 +3,7 @@
     public class ServiceRequest
     {
         public int ID { get; set; }
-        public string Name { get; set; } // Name of the request (e.g., "Water Leak")
+        public string Name { get; set; } 
         public string Location { get; set; }
         public string Category { get; set; }
         public string Status { get; set; } // "Pending", "In Progress", "Completed"
@@ -19,7 +19,7 @@
 
         public override string ToString()
         {
-            // Improved ToString to include all fields
+            
             return $"{ID}: {Name} ({Category}) at {Location} - {Status}";
         }
     }
