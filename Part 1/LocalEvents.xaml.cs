@@ -98,7 +98,13 @@ namespace Part_1
                 txtRecommendation.ItemsSource = null;  // Clear if no recommendations are found
             }
         }
-
+        private void btnBackToHomepage_Click(object sender, RoutedEventArgs e)
+        {
+            // Navigate back to the MainWindow
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close(); // Close the current LocalEvents window
+        }
 
         // Update the analysis status based on the number of searches
         private void UpdateAnalysisStatus()

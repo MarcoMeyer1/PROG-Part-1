@@ -53,7 +53,7 @@
         <TextBlock Text="Service Request Status" FontSize="24" FontWeight="Bold" Foreground="#F0F0F0"
                    HorizontalAlignment="Center" Margin="10"/>
 
- 
+
         <StackPanel Grid.Row="1" Margin="10">
             <!-- List of Service Requests -->
             <ListView Name="lstServiceRequests" Background="#2E2E2E" Foreground="#E0E0E0" Height="300" Margin="0,0,0,10">
@@ -87,10 +87,19 @@
                 </ListView.View>
             </ListView>
 
-            <!-- Show Related Requests Button -->
-            <Button Name="btnShowRelatedRequests" Content="Show Related Requests" Width="200"
-        HorizontalAlignment="Left" Margin="10" Style="{StaticResource RoundButton}"
-        Background="#FFD700" Foreground="#282828" Click="btnShowRelatedRequests_Click"/>
+            <!-- Horizontal StackPanel for Buttons -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+                <!-- Show Related Requests Button -->
+                <Button Name="btnShowRelatedRequests" Content="Show Related Requests" Width="200"
+                Style="{StaticResource RoundButton}" Background="#FFD700" Foreground="#282828"
+                Click="btnShowRelatedRequests_Click" Margin="0,0,10,0" />
+
+                <!-- Back to Homepage Button -->
+                <Button Name="btnBackToHomepage" Content="Back to Homepage" Width="200"
+                Style="{StaticResource RoundButton}" Background="#4C4C4C" Foreground="#F0F0F0"
+                Click="btnBackToHomepage_Click" />
+            </StackPanel>
         </StackPanel>
+
     </Grid>
 </Window>

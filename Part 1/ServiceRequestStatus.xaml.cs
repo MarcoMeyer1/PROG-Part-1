@@ -22,6 +22,15 @@ namespace Part_1
             requestTree.InOrderTraversal(request => lstServiceRequests.Items.Add(request));
         }
 
+        private void btnBackToHomepage_Click(object sender, RoutedEventArgs e)
+        {
+            
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+
+
         private void btnShowRelatedRequests_Click(object sender, RoutedEventArgs e)
         {
             if (lstServiceRequests.SelectedItem is ServiceRequest selectedRequest)
